@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b25233912c034c82a22ff2cc2068d25e" Name="Diagram1">
+        <EntityTypeShape EntityType="Dem2KritModel.edinicha_izmerenia" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.gorod" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.kategoria_tovara" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.postavshchik" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.proizvoditel" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.pynkt_vydachu" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.role" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.soderzhanie_zakaza" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.statys_zakaza" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.tovar" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.user" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.ylucha" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Dem2KritModel.zakaz" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="Dem2KritModel.FK_tovar_edinicha_izmerenia" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_pynkt_vydachu_gorod" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_tovar_kategoria_tovara" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_tovar_postavshchik" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_tovar_proizvoditel" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_pynkt_vydachu_ylucha" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_zakaz_pynkt_vydachu" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_user_role" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_soderzhanie_zakaza_tovar" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_zakaz_soderzhanie_zakaza" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_zakaz_statys_zakaza" ManuallyRouted="false" />
+        <AssociationConnector Association="Dem2KritModel.FK_zakaz_user" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

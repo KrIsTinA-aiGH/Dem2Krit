@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Dem2KritModelContainer" CdmEntityContainer="Dem2KritEntities">
+    <EntitySetMapping Name="edinicha_izmerenia">
+      <EntityTypeMapping TypeName="Dem2KritModel.edinicha_izmerenia">
+        <MappingFragment StoreEntitySet="edinicha_izmerenia">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_edin_izmerenia" ColumnName="name_edin_izmerenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gorod">
+      <EntityTypeMapping TypeName="Dem2KritModel.gorod">
+        <MappingFragment StoreEntitySet="gorod">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_gorod" ColumnName="name_gorod" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategoria_tovara">
+      <EntityTypeMapping TypeName="Dem2KritModel.kategoria_tovara">
+        <MappingFragment StoreEntitySet="kategoria_tovara">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_kat_tovara" ColumnName="name_kat_tovara" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="postavshchik">
+      <EntityTypeMapping TypeName="Dem2KritModel.postavshchik">
+        <MappingFragment StoreEntitySet="postavshchik">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_postavshchik" ColumnName="name_postavshchik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="proizvoditel">
+      <EntityTypeMapping TypeName="Dem2KritModel.proizvoditel">
+        <MappingFragment StoreEntitySet="proizvoditel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_proizvoditel" ColumnName="name_proizvoditel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pynkt_vydachu">
+      <EntityTypeMapping TypeName="Dem2KritModel.pynkt_vydachu">
+        <MappingFragment StoreEntitySet="pynkt_vydachu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="indeks" ColumnName="indeks" />
+          <ScalarProperty Name="gorodID" ColumnName="gorodID" />
+          <ScalarProperty Name="yluchaID" ColumnName="yluchaID" />
+          <ScalarProperty Name="nomer_doma" ColumnName="nomer_doma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="role">
+      <EntityTypeMapping TypeName="Dem2KritModel.role">
+        <MappingFragment StoreEntitySet="role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_role" ColumnName="name_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="soderzhanie_zakaza">
+      <EntityTypeMapping TypeName="Dem2KritModel.soderzhanie_zakaza">
+        <MappingFragment StoreEntitySet="soderzhanie_zakaza">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="zakazID" ColumnName="zakazID" />
+          <ScalarProperty Name="artikylID" ColumnName="artikylID" />
+          <ScalarProperty Name="kolichestvo" ColumnName="kolichestvo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="statys_zakaza">
+      <EntityTypeMapping TypeName="Dem2KritModel.statys_zakaza">
+        <MappingFragment StoreEntitySet="statys_zakaza">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_statys" ColumnName="name_statys" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Dem2KritModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tovar">
+      <EntityTypeMapping TypeName="Dem2KritModel.tovar">
+        <MappingFragment StoreEntitySet="tovar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="artikyl" ColumnName="artikyl" />
+          <ScalarProperty Name="naimenovanie_tovara" ColumnName="naimenovanie_tovara" />
+          <ScalarProperty Name="edinicha_izmereniaID" ColumnName="edinicha_izmereniaID" />
+          <ScalarProperty Name="chena" ColumnName="chena" />
+          <ScalarProperty Name="postavshchikID" ColumnName="postavshchikID" />
+          <ScalarProperty Name="proizvoditelID" ColumnName="proizvoditelID" />
+          <ScalarProperty Name="kategoria_tovaraID" ColumnName="kategoria_tovaraID" />
+          <ScalarProperty Name="skidka" ColumnName="skidka" />
+          <ScalarProperty Name="kolichestvo_na_sklade" ColumnName="kolichestvo_na_sklade" />
+          <ScalarProperty Name="opisanie_tovara" ColumnName="opisanie_tovara" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="Dem2KritModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+          <ScalarProperty Name="familia" ColumnName="familia" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="otchestvo" ColumnName="otchestvo" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="parol" ColumnName="parol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ylucha">
+      <EntityTypeMapping TypeName="Dem2KritModel.ylucha">
+        <MappingFragment StoreEntitySet="ylucha">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name_ylicha" ColumnName="name_ylicha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zakaz">
+      <EntityTypeMapping TypeName="Dem2KritModel.zakaz">
+        <MappingFragment StoreEntitySet="zakaz">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="namer_zakazaID" ColumnName="namer_zakazaID" />
+          <ScalarProperty Name="data_zakaza" ColumnName="data_zakaza" />
+          <ScalarProperty Name="data_dostavki" ColumnName="data_dostavki" />
+          <ScalarProperty Name="pynkt_vydachuID" ColumnName="pynkt_vydachuID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="kod_polychenia" ColumnName="kod_polychenia" />
+          <ScalarProperty Name="statys_zakazaID" ColumnName="statys_zakazaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

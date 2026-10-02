@@ -1,0 +1,877 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Dem2KritModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="edinicha_izmerenia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_edin_izmerenia" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gorod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_gorod" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kategoria_tovara">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_kat_tovara" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="postavshchik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_postavshchik" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proizvoditel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_proizvoditel" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pynkt_vydachu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="indeks" Type="int" Nullable="false" />
+          <Property Name="gorodID" Type="bigint" Nullable="false" />
+          <Property Name="yluchaID" Type="bigint" Nullable="false" />
+          <Property Name="nomer_doma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_role" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="soderzhanie_zakaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="zakazID" Type="bigint" Nullable="false" />
+          <Property Name="artikylID" Type="bigint" Nullable="false" />
+          <Property Name="kolichestvo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="statys_zakaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_statys" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tovar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="artikyl" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="naimenovanie_tovara" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="edinicha_izmereniaID" Type="bigint" Nullable="false" />
+          <Property Name="chena" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="postavshchikID" Type="bigint" Nullable="false" />
+          <Property Name="proizvoditelID" Type="bigint" Nullable="false" />
+          <Property Name="kategoria_tovaraID" Type="bigint" Nullable="false" />
+          <Property Name="skidka" Type="int" Nullable="false" />
+          <Property Name="kolichestvo_na_sklade" Type="int" Nullable="false" />
+          <Property Name="opisanie_tovara" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="roleID" Type="bigint" Nullable="false" />
+          <Property Name="familia" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="otchestvo" Type="varchar" MaxLength="200" />
+          <Property Name="login" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="parol" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ylucha">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="name_ylicha" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="zakaz">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="namer_zakazaID" Type="bigint" />
+          <Property Name="data_zakaza" Type="date" />
+          <Property Name="data_dostavki" Type="date" />
+          <Property Name="pynkt_vydachuID" Type="bigint" />
+          <Property Name="userID" Type="bigint" />
+          <Property Name="kod_polychenia" Type="int" />
+          <Property Name="statys_zakazaID" Type="bigint" />
+        </EntityType>
+        <Association Name="FK_pynkt_vydachu_gorod">
+          <End Role="gorod" Type="Self.gorod" Multiplicity="1" />
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gorod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pynkt_vydachu">
+              <PropertyRef Name="gorodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pynkt_vydachu_ylucha">
+          <End Role="ylucha" Type="Self.ylucha" Multiplicity="1" />
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ylucha">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pynkt_vydachu">
+              <PropertyRef Name="yluchaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soderzhanie_zakaza_tovar">
+          <End Role="tovar" Type="Self.tovar" Multiplicity="1" />
+          <End Role="soderzhanie_zakaza" Type="Self.soderzhanie_zakaza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tovar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="soderzhanie_zakaza">
+              <PropertyRef Name="artikylID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_edinicha_izmerenia">
+          <End Role="edinicha_izmerenia" Type="Self.edinicha_izmerenia" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="edinicha_izmerenia">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="edinicha_izmereniaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_kategoria_tovara">
+          <End Role="kategoria_tovara" Type="Self.kategoria_tovara" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoria_tovara">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="kategoria_tovaraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_postavshchik">
+          <End Role="postavshchik" Type="Self.postavshchik" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="postavshchik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="postavshchikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_proizvoditel">
+          <End Role="proizvoditel" Type="Self.proizvoditel" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proizvoditel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="proizvoditelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_pynkt_vydachu">
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pynkt_vydachu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="pynkt_vydachuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_soderzhanie_zakaza">
+          <End Role="soderzhanie_zakaza" Type="Self.soderzhanie_zakaza" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soderzhanie_zakaza">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="namer_zakazaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_statys_zakaza">
+          <End Role="statys_zakaza" Type="Self.statys_zakaza" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statys_zakaza">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="statys_zakazaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Dem2KritModelContainer">
+          <EntitySet Name="edinicha_izmerenia" EntityType="Self.edinicha_izmerenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gorod" EntityType="Self.gorod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kategoria_tovara" EntityType="Self.kategoria_tovara" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="postavshchik" EntityType="Self.postavshchik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proizvoditel" EntityType="Self.proizvoditel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pynkt_vydachu" EntityType="Self.pynkt_vydachu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="soderzhanie_zakaza" EntityType="Self.soderzhanie_zakaza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statys_zakaza" EntityType="Self.statys_zakaza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tovar" EntityType="Self.tovar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ylucha" EntityType="Self.ylucha" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="zakaz" EntityType="Self.zakaz" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_pynkt_vydachu_gorod" Association="Self.FK_pynkt_vydachu_gorod">
+            <End Role="gorod" EntitySet="gorod" />
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pynkt_vydachu_ylucha" Association="Self.FK_pynkt_vydachu_ylucha">
+            <End Role="ylucha" EntitySet="ylucha" />
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soderzhanie_zakaza_tovar" Association="Self.FK_soderzhanie_zakaza_tovar">
+            <End Role="tovar" EntitySet="tovar" />
+            <End Role="soderzhanie_zakaza" EntitySet="soderzhanie_zakaza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_edinicha_izmerenia" Association="Self.FK_tovar_edinicha_izmerenia">
+            <End Role="edinicha_izmerenia" EntitySet="edinicha_izmerenia" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_kategoria_tovara" Association="Self.FK_tovar_kategoria_tovara">
+            <End Role="kategoria_tovara" EntitySet="kategoria_tovara" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_postavshchik" Association="Self.FK_tovar_postavshchik">
+            <End Role="postavshchik" EntitySet="postavshchik" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_proizvoditel" Association="Self.FK_tovar_proizvoditel">
+            <End Role="proizvoditel" EntitySet="proizvoditel" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_pynkt_vydachu" Association="Self.FK_zakaz_pynkt_vydachu">
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_soderzhanie_zakaza" Association="Self.FK_zakaz_soderzhanie_zakaza">
+            <End Role="soderzhanie_zakaza" EntitySet="soderzhanie_zakaza" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_statys_zakaza" Association="Self.FK_zakaz_statys_zakaza">
+            <End Role="statys_zakaza" EntitySet="statys_zakaza" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_user" Association="Self.FK_zakaz_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Dem2KritModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="edinicha_izmerenia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_edin_izmerenia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tovar" Relationship="Self.FK_tovar_edinicha_izmerenia" FromRole="edinicha_izmerenia" ToRole="tovar" />
+        </EntityType>
+        <EntityType Name="gorod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_gorod" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pynkt_vydachu" Relationship="Self.FK_pynkt_vydachu_gorod" FromRole="gorod" ToRole="pynkt_vydachu" />
+        </EntityType>
+        <EntityType Name="kategoria_tovara">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_kat_tovara" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tovar" Relationship="Self.FK_tovar_kategoria_tovara" FromRole="kategoria_tovara" ToRole="tovar" />
+        </EntityType>
+        <EntityType Name="postavshchik">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_postavshchik" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tovar" Relationship="Self.FK_tovar_postavshchik" FromRole="postavshchik" ToRole="tovar" />
+        </EntityType>
+        <EntityType Name="proizvoditel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_proizvoditel" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tovar" Relationship="Self.FK_tovar_proizvoditel" FromRole="proizvoditel" ToRole="tovar" />
+        </EntityType>
+        <EntityType Name="pynkt_vydachu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="indeks" Type="Int32" Nullable="false" />
+          <Property Name="gorodID" Type="Int64" Nullable="false" />
+          <Property Name="yluchaID" Type="Int64" Nullable="false" />
+          <Property Name="nomer_doma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gorod" Relationship="Self.FK_pynkt_vydachu_gorod" FromRole="pynkt_vydachu" ToRole="gorod" />
+          <NavigationProperty Name="ylucha" Relationship="Self.FK_pynkt_vydachu_ylucha" FromRole="pynkt_vydachu" ToRole="ylucha" />
+          <NavigationProperty Name="zakaz" Relationship="Self.FK_zakaz_pynkt_vydachu" FromRole="pynkt_vydachu" ToRole="zakaz" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_role" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.FK_user_role" FromRole="role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="soderzhanie_zakaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="zakazID" Type="Int64" Nullable="false" />
+          <Property Name="artikylID" Type="Int64" Nullable="false" />
+          <Property Name="kolichestvo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tovar" Relationship="Self.FK_soderzhanie_zakaza_tovar" FromRole="soderzhanie_zakaza" ToRole="tovar" />
+          <NavigationProperty Name="zakaz" Relationship="Self.FK_zakaz_soderzhanie_zakaza" FromRole="soderzhanie_zakaza" ToRole="zakaz" />
+        </EntityType>
+        <EntityType Name="statys_zakaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_statys" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="zakaz" Relationship="Self.FK_zakaz_statys_zakaza" FromRole="statys_zakaza" ToRole="zakaz" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tovar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="artikyl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="naimenovanie_tovara" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="edinicha_izmereniaID" Type="Int64" Nullable="false" />
+          <Property Name="chena" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postavshchikID" Type="Int64" Nullable="false" />
+          <Property Name="proizvoditelID" Type="Int64" Nullable="false" />
+          <Property Name="kategoria_tovaraID" Type="Int64" Nullable="false" />
+          <Property Name="skidka" Type="Int32" Nullable="false" />
+          <Property Name="kolichestvo_na_sklade" Type="Int32" Nullable="false" />
+          <Property Name="opisanie_tovara" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="edinicha_izmerenia" Relationship="Self.FK_tovar_edinicha_izmerenia" FromRole="tovar" ToRole="edinicha_izmerenia" />
+          <NavigationProperty Name="kategoria_tovara" Relationship="Self.FK_tovar_kategoria_tovara" FromRole="tovar" ToRole="kategoria_tovara" />
+          <NavigationProperty Name="postavshchik" Relationship="Self.FK_tovar_postavshchik" FromRole="tovar" ToRole="postavshchik" />
+          <NavigationProperty Name="proizvoditel" Relationship="Self.FK_tovar_proizvoditel" FromRole="tovar" ToRole="proizvoditel" />
+          <NavigationProperty Name="soderzhanie_zakaza" Relationship="Self.FK_soderzhanie_zakaza_tovar" FromRole="tovar" ToRole="soderzhanie_zakaza" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="roleID" Type="Int64" Nullable="false" />
+          <Property Name="familia" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="otchestvo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="login" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parol" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK_user_role" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="zakaz" Relationship="Self.FK_zakaz_user" FromRole="user" ToRole="zakaz" />
+        </EntityType>
+        <EntityType Name="ylucha">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="name_ylicha" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pynkt_vydachu" Relationship="Self.FK_pynkt_vydachu_ylucha" FromRole="ylucha" ToRole="pynkt_vydachu" />
+        </EntityType>
+        <EntityType Name="zakaz">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="namer_zakazaID" Type="Int64" />
+          <Property Name="data_zakaza" Type="DateTime" Precision="0" />
+          <Property Name="data_dostavki" Type="DateTime" Precision="0" />
+          <Property Name="pynkt_vydachuID" Type="Int64" />
+          <Property Name="userID" Type="Int64" />
+          <Property Name="kod_polychenia" Type="Int32" />
+          <Property Name="statys_zakazaID" Type="Int64" />
+          <NavigationProperty Name="pynkt_vydachu" Relationship="Self.FK_zakaz_pynkt_vydachu" FromRole="zakaz" ToRole="pynkt_vydachu" />
+          <NavigationProperty Name="soderzhanie_zakaza" Relationship="Self.FK_zakaz_soderzhanie_zakaza" FromRole="zakaz" ToRole="soderzhanie_zakaza" />
+          <NavigationProperty Name="statys_zakaza" Relationship="Self.FK_zakaz_statys_zakaza" FromRole="zakaz" ToRole="statys_zakaza" />
+          <NavigationProperty Name="user" Relationship="Self.FK_zakaz_user" FromRole="zakaz" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_tovar_edinicha_izmerenia">
+          <End Role="edinicha_izmerenia" Type="Self.edinicha_izmerenia" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="edinicha_izmerenia">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="edinicha_izmereniaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pynkt_vydachu_gorod">
+          <End Role="gorod" Type="Self.gorod" Multiplicity="1" />
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gorod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pynkt_vydachu">
+              <PropertyRef Name="gorodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_kategoria_tovara">
+          <End Role="kategoria_tovara" Type="Self.kategoria_tovara" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategoria_tovara">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="kategoria_tovaraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_postavshchik">
+          <End Role="postavshchik" Type="Self.postavshchik" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="postavshchik">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="postavshchikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tovar_proizvoditel">
+          <End Role="proizvoditel" Type="Self.proizvoditel" Multiplicity="1" />
+          <End Role="tovar" Type="Self.tovar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proizvoditel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tovar">
+              <PropertyRef Name="proizvoditelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_pynkt_vydachu_ylucha">
+          <End Role="ylucha" Type="Self.ylucha" Multiplicity="1" />
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ylucha">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pynkt_vydachu">
+              <PropertyRef Name="yluchaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_pynkt_vydachu">
+          <End Role="pynkt_vydachu" Type="Self.pynkt_vydachu" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pynkt_vydachu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="pynkt_vydachuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_role">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="roleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_soderzhanie_zakaza_tovar">
+          <End Role="tovar" Type="Self.tovar" Multiplicity="1" />
+          <End Role="soderzhanie_zakaza" Type="Self.soderzhanie_zakaza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tovar">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="soderzhanie_zakaza">
+              <PropertyRef Name="artikylID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_soderzhanie_zakaza">
+          <End Role="soderzhanie_zakaza" Type="Self.soderzhanie_zakaza" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="soderzhanie_zakaza">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="namer_zakazaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_statys_zakaza">
+          <End Role="statys_zakaza" Type="Self.statys_zakaza" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statys_zakaza">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="statys_zakazaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_zakaz_user">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="zakaz" Type="Self.zakaz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="zakaz">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dem2KritEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="edinicha_izmerenia" EntityType="Self.edinicha_izmerenia" />
+          <EntitySet Name="gorod" EntityType="Self.gorod" />
+          <EntitySet Name="kategoria_tovara" EntityType="Self.kategoria_tovara" />
+          <EntitySet Name="postavshchik" EntityType="Self.postavshchik" />
+          <EntitySet Name="proizvoditel" EntityType="Self.proizvoditel" />
+          <EntitySet Name="pynkt_vydachu" EntityType="Self.pynkt_vydachu" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="soderzhanie_zakaza" EntityType="Self.soderzhanie_zakaza" />
+          <EntitySet Name="statys_zakaza" EntityType="Self.statys_zakaza" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="tovar" EntityType="Self.tovar" />
+          <EntitySet Name="user" EntityType="Self.user" />
+          <EntitySet Name="ylucha" EntityType="Self.ylucha" />
+          <EntitySet Name="zakaz" EntityType="Self.zakaz" />
+          <AssociationSet Name="FK_tovar_edinicha_izmerenia" Association="Self.FK_tovar_edinicha_izmerenia">
+            <End Role="edinicha_izmerenia" EntitySet="edinicha_izmerenia" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pynkt_vydachu_gorod" Association="Self.FK_pynkt_vydachu_gorod">
+            <End Role="gorod" EntitySet="gorod" />
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_kategoria_tovara" Association="Self.FK_tovar_kategoria_tovara">
+            <End Role="kategoria_tovara" EntitySet="kategoria_tovara" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_postavshchik" Association="Self.FK_tovar_postavshchik">
+            <End Role="postavshchik" EntitySet="postavshchik" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tovar_proizvoditel" Association="Self.FK_tovar_proizvoditel">
+            <End Role="proizvoditel" EntitySet="proizvoditel" />
+            <End Role="tovar" EntitySet="tovar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_pynkt_vydachu_ylucha" Association="Self.FK_pynkt_vydachu_ylucha">
+            <End Role="ylucha" EntitySet="ylucha" />
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_pynkt_vydachu" Association="Self.FK_zakaz_pynkt_vydachu">
+            <End Role="pynkt_vydachu" EntitySet="pynkt_vydachu" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_role" Association="Self.FK_user_role">
+            <End Role="role" EntitySet="role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_soderzhanie_zakaza_tovar" Association="Self.FK_soderzhanie_zakaza_tovar">
+            <End Role="tovar" EntitySet="tovar" />
+            <End Role="soderzhanie_zakaza" EntitySet="soderzhanie_zakaza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_soderzhanie_zakaza" Association="Self.FK_zakaz_soderzhanie_zakaza">
+            <End Role="soderzhanie_zakaza" EntitySet="soderzhanie_zakaza" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_statys_zakaza" Association="Self.FK_zakaz_statys_zakaza">
+            <End Role="statys_zakaza" EntitySet="statys_zakaza" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_zakaz_user" Association="Self.FK_zakaz_user">
+            <End Role="user" EntitySet="user" />
+            <End Role="zakaz" EntitySet="zakaz" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Dem2KritModelContainer" CdmEntityContainer="Dem2KritEntities">
+          <EntitySetMapping Name="edinicha_izmerenia">
+            <EntityTypeMapping TypeName="Dem2KritModel.edinicha_izmerenia">
+              <MappingFragment StoreEntitySet="edinicha_izmerenia">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_edin_izmerenia" ColumnName="name_edin_izmerenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gorod">
+            <EntityTypeMapping TypeName="Dem2KritModel.gorod">
+              <MappingFragment StoreEntitySet="gorod">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_gorod" ColumnName="name_gorod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategoria_tovara">
+            <EntityTypeMapping TypeName="Dem2KritModel.kategoria_tovara">
+              <MappingFragment StoreEntitySet="kategoria_tovara">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_kat_tovara" ColumnName="name_kat_tovara" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="postavshchik">
+            <EntityTypeMapping TypeName="Dem2KritModel.postavshchik">
+              <MappingFragment StoreEntitySet="postavshchik">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_postavshchik" ColumnName="name_postavshchik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proizvoditel">
+            <EntityTypeMapping TypeName="Dem2KritModel.proizvoditel">
+              <MappingFragment StoreEntitySet="proizvoditel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_proizvoditel" ColumnName="name_proizvoditel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pynkt_vydachu">
+            <EntityTypeMapping TypeName="Dem2KritModel.pynkt_vydachu">
+              <MappingFragment StoreEntitySet="pynkt_vydachu">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="indeks" ColumnName="indeks" />
+                <ScalarProperty Name="gorodID" ColumnName="gorodID" />
+                <ScalarProperty Name="yluchaID" ColumnName="yluchaID" />
+                <ScalarProperty Name="nomer_doma" ColumnName="nomer_doma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="Dem2KritModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_role" ColumnName="name_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="soderzhanie_zakaza">
+            <EntityTypeMapping TypeName="Dem2KritModel.soderzhanie_zakaza">
+              <MappingFragment StoreEntitySet="soderzhanie_zakaza">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="zakazID" ColumnName="zakazID" />
+                <ScalarProperty Name="artikylID" ColumnName="artikylID" />
+                <ScalarProperty Name="kolichestvo" ColumnName="kolichestvo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statys_zakaza">
+            <EntityTypeMapping TypeName="Dem2KritModel.statys_zakaza">
+              <MappingFragment StoreEntitySet="statys_zakaza">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_statys" ColumnName="name_statys" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Dem2KritModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tovar">
+            <EntityTypeMapping TypeName="Dem2KritModel.tovar">
+              <MappingFragment StoreEntitySet="tovar">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="artikyl" ColumnName="artikyl" />
+                <ScalarProperty Name="naimenovanie_tovara" ColumnName="naimenovanie_tovara" />
+                <ScalarProperty Name="edinicha_izmereniaID" ColumnName="edinicha_izmereniaID" />
+                <ScalarProperty Name="chena" ColumnName="chena" />
+                <ScalarProperty Name="postavshchikID" ColumnName="postavshchikID" />
+                <ScalarProperty Name="proizvoditelID" ColumnName="proizvoditelID" />
+                <ScalarProperty Name="kategoria_tovaraID" ColumnName="kategoria_tovaraID" />
+                <ScalarProperty Name="skidka" ColumnName="skidka" />
+                <ScalarProperty Name="kolichestvo_na_sklade" ColumnName="kolichestvo_na_sklade" />
+                <ScalarProperty Name="opisanie_tovara" ColumnName="opisanie_tovara" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user">
+            <EntityTypeMapping TypeName="Dem2KritModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="roleID" ColumnName="roleID" />
+                <ScalarProperty Name="familia" ColumnName="familia" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="otchestvo" ColumnName="otchestvo" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="parol" ColumnName="parol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ylucha">
+            <EntityTypeMapping TypeName="Dem2KritModel.ylucha">
+              <MappingFragment StoreEntitySet="ylucha">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="name_ylicha" ColumnName="name_ylicha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="zakaz">
+            <EntityTypeMapping TypeName="Dem2KritModel.zakaz">
+              <MappingFragment StoreEntitySet="zakaz">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="namer_zakazaID" ColumnName="namer_zakazaID" />
+                <ScalarProperty Name="data_zakaza" ColumnName="data_zakaza" />
+                <ScalarProperty Name="data_dostavki" ColumnName="data_dostavki" />
+                <ScalarProperty Name="pynkt_vydachuID" ColumnName="pynkt_vydachuID" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="kod_polychenia" ColumnName="kod_polychenia" />
+                <ScalarProperty Name="statys_zakazaID" ColumnName="statys_zakazaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
